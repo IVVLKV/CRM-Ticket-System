@@ -1,0 +1,31 @@
+mat-row[dev="Ivo"] {
+    background-color: #9900ff;
+}
+mat-row[dev="Ivo"] .mat-cell, mat-row[dev="Ivo"] a {
+    color: #fff;
+}
+
+mat-row[dev="Annie"] {
+    background-color: #34dddd;
+}
+mat-row[dev="Annie"] .mat-cell, mat-row[dev="Annie"] a {
+    color: #000;
+}
+
+mat-row[dev="Rosti"] {
+    background-color: #9fc5e8;
+}
+mat-row[dev="Rosti"] .mat-cell, mat-row[dev="Rosti"] a {
+    color: #000;
+}
+
+mat-row[dev="Shefa"] {
+    background-color: #d5f9dd;
+}
+mat-row[dev="Shefa"] .mat-cell, mat-row[dev="Shefa"] a {
+    color: #000;
+}
+
+.mat-table .mat-icon {
+    cursor: help;
+}

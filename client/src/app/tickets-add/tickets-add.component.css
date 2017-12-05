@@ -1,0 +1,6 @@
+.mat-form-field {
+    width: calc(100% - 30px);
+}
+.btn-container {
+    text-align: center;
+}

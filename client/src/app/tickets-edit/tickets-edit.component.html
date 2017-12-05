@@ -1,0 +1,119 @@
+<form (ngSubmit)="updateTicket()" [formGroup]="ticketForm" novalidate>
+    <h3>Edit Ticket - {{ ticketForm.get('number').value }}</h3>
+    <div class="grid">
+      <div class="col-12">
+        <mat-checkbox color="primary" formControlName="active">Active</mat-checkbox>
+      </div>
+
+      <div class="col-6_sm-12">
+        <mat-icon>add_box</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Ticket number" formControlName="number">
+        </mat-form-field>
+      </div> 
+
+      <div class="col-6_sm-12">
+        <mat-icon>insert_link</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Ticket link" formControlName="link">
+        </mat-form-field>
+      </div> 
+
+      <div class="col-4_sm-12">
+        <mat-icon>playlist_add</mat-icon>
+        <mat-form-field>
+          <mat-select placeholder="Ticket status" formControlName="status">
+            <mat-option value="In Progress">In Progress</mat-option>
+            <mat-option value="CORR">CORR</mat-option>
+            <mat-option value="Delivered AF">Delivered AF</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>    
+
+      <div class="col-4_sm-12">
+        <mat-icon>announcement</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Ticket requestor" formControlName="requestor">
+        </mat-form-field>
+      </div>    
+
+      <div class="col-4_sm-12">
+        <mat-icon>access_alarm</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Ticket deadline" formControlName="deadline">
+        </mat-form-field>
+      </div>    
+
+      <div class="col-4_sm-12">
+        <mat-icon>account_box</mat-icon>
+        <mat-form-field>
+          <input type="text" placeholder="Primary dev" matInput formControlName="dev" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let dev of devs" [value]="dev">
+              {{ dev }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>    
+
+      <div class="col-4_sm-12">
+        <mat-icon>check_circle</mat-icon>
+        <mat-form-field>
+          <input type="text" placeholder="QA" matInput formControlName="qa" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let dev of devs" [value]="dev">
+              {{ dev }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>    
+
+      <div class="col-4_sm-12">
+        <mat-icon>control_point</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Ticket category" formControlName="category">
+        </mat-form-field>
+      </div>  
+
+      <div class="col-4_sm-12">
+        <mat-icon>equalizer</mat-icon>
+        <mat-form-field>
+          <mat-select placeholder="Priority" formControlName="priority">
+            <mat-option value="Low">Low</mat-option>
+            <mat-option value="Medium">Medium</mat-option>
+            <mat-option value="High">High</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>  
+
+      <div class="col-4_sm-12">
+        <mat-icon>filter_hdr</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Designer" formControlName="designer">
+        </mat-form-field>
+      </div>  
+
+      <div class="col-4_sm-12">
+        <mat-icon>insert_drive_file</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Link to files" formControlName="files">
+        </mat-form-field>
+      </div>  
+
+      <div class="col-12">
+        <mat-icon>event_note</mat-icon>
+        <mat-form-field>
+          <input matInput placeholder="Notes" formControlName="notes">
+        </mat-form-field>
+      </div>  
+
+      <div class="col-12 delete-button">
+          <span (click)="deleteTicket(ticketId)" mat-fab ><mat-icon>delete_forever</mat-icon></span>
+      </div>
+
+      <div class="col-12 btn-container">
+        
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </div>
+    </div>
+</form>

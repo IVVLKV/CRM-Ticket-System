@@ -1,0 +1,23 @@
+<header>
+  <div class="container">
+    <div class="grid-noBottom">
+      <div class="col-6">
+        <div *ngIf="authService.getUsername()">
+          <button routerLink="/tickets/active-tickets" mat-raised-button class="active-tickets">Active Tickets</button>
+          <button routerLink="/tickets/inactive-tickets" mat-raised-button class="inactive-tickets">Inactive Tickets</button>
+          <button routerLink="/tickets/add-ticket" mat-raised-button color="primary">Add New Ticket</button>
+        </div>
+      </div>
+      <div class="col-6 align-right" *ngIf="!authService.getUsername()">
+          <button color="primary" routerLink="/login" mat-raised-button>Login</button>
+          <button color="primary" routerLink="/register" mat-raised-button>Register</button>
+      </div>
+      <div class="col-6 align-right" *ngIf="authService.getUsername()">
+        <button mat-raised-button color="primary" [matMenuTriggerFor]="menu"><mat-icon>person</mat-icon> {{authService.getUsername()}}</button>
+        <mat-menu #menu="matMenu" [overlapTrigger]="false" xPosition="before">
+          <button routerLink="/login" mat-menu-item>Logout</button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</header>
